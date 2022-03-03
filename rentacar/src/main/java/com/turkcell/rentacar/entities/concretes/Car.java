@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -35,4 +36,7 @@ public class Car {
     @ManyToOne
     @JoinColumn(name="color_id")
     private Color color;
+
+    @OneToMany(mappedBy = "car")
+    private List<CarMaintenance> carMaintenances;
 }

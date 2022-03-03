@@ -53,27 +53,21 @@ public class CarController {
     
     @GetMapping("/getAllPaged/{pageNo}/{pageSize}")
     DataResult<List<CarListDto>> getAllPaged(@PathVariable("pageNo") int pageNo, @PathVariable("pageSize") int pageSize){
-    	
     	return this.carService.getAllPaged(pageNo, pageSize);
-    	
     }
     
     @GetMapping("/getAllSorted/{orderOfSort}")
     DataResult<List<CarListDto>> getAllSorted (@RequestParam("orderOfSort") String param){
-    	
     	return this.carService.getAllSorted(param);
     }
     
     @GetMapping("/findByDailyPriceLessThan/{requestedPrice}")
     DataResult<List<CarListDto>> findByDailyPriceLessThan(@PathVariable("requestedPrice") double requestedPrice){
-    	
     	return this.carService.findByDailyPriceLessThan(requestedPrice);
-    	
     }
     
     @GetMapping("/findByDailyPriceBetween/{since}/{until}")
     DataResult<List<CarListDto>> findByDailyPriceBetween (@PathVariable("since") double since, @PathVariable("until") double until){
-    	
     	return this.carService.findByDailyPriceBetween(since, until);
     }
 }
