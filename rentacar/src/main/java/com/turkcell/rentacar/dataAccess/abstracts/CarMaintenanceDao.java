@@ -1,11 +1,14 @@
 package com.turkcell.rentacar.dataAccess.abstracts;
 
-import com.turkcell.rentacar.entities.concretes.CarMaintenance;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
 
-public interface CarMaintenanceDao extends JpaRepository<CarMaintenance,Integer> {
-    boolean existsCarMaintenanceById(Integer id);
-    List<CarMaintenance> findMaintenanceByReturnDateIsNull();
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.turkcell.rentacar.entities.concretes.CarMaintenance;
+
+@Repository
+public interface CarMaintenanceDao extends JpaRepository<CarMaintenance, Integer>{
+	
+	List<CarMaintenance> getByCarCarId(int carId);
 }

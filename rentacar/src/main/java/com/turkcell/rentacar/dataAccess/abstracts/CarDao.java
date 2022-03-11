@@ -1,15 +1,13 @@
 package com.turkcell.rentacar.dataAccess.abstracts;
 
-import com.turkcell.rentacar.business.dtos.CarListDto;
-import com.turkcell.rentacar.core.utilities.results.DataResult;
 import com.turkcell.rentacar.entities.concretes.Car;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface CarDao extends JpaRepository<Car,Integer> {
-    boolean existsCarById(Integer id);
-    List<Car> findByDailyPriceLessThan(double requestedPrice);
-    List<Car> findByDailyPriceBetween(double maxValue, double minValue);
+@Repository
+public interface CarDao extends JpaRepository<Car, Integer> {
+    List<Car> getByDailyPriceIsLessThanEqual(double dailyPrice);
+    List<Car> getByModelYearIsLessThanEqual(int modelYear);
 }

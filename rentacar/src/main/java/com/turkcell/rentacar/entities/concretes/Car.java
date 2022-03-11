@@ -3,22 +3,22 @@ package com.turkcell.rentacar.entities.concretes;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import javax.persistence.*;
 import java.util.List;
 
-@Entity
+import javax.persistence.*;
+
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Table(name = "cars")
 public class Car {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "car_id")
-    private int id;
+    private int carId;
 
     @Column(name = "daily_price")
     private double dailyPrice;
@@ -27,16 +27,22 @@ public class Car {
     private int modelYear;
 
     @Column(name = "description")
-    private String description;
+    private String carDescription;
 
     @ManyToOne
-    @JoinColumn(name="brand_id")
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
     @ManyToOne
-    @JoinColumn(name="color_id")
+    @JoinColumn(name = "color_id")
     private Color color;
-
-    @OneToMany(mappedBy = "car")
+    
+    @OneToMany(mappedBy = "car",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<CarMaintenance> carMaintenances;
+    
+    @OneToMany(mappedBy = "car")
+    private List<Rental> rentals;
+    
+    
+    
 }
