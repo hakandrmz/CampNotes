@@ -142,27 +142,16 @@ public class RentalManager implements RentalService {
     }
 
     private boolean checkIfRentalIsReturnDifferentCity(Rental rental) {
-
-        if (rental.getCityOfPickUpLocation() == rental.getCityOfReturnLocation()) {
-            return false;
-        }
-
-        return true;
-
+        return rental.getCityOfPickUpLocation() != rental.getCityOfReturnLocation();
     }
 
     private double calculateAdditionalPriceForReturnLocation(Rental rental) {
-
         double additionalPrice = 0;
-
         if (checkIfRentalIsReturnDifferentCity(rental)) {
             additionalPrice = 750;
         }
-
         return additionalPrice;
-
     }
-
 
     private void checkIfStartDateBeforeThanEndDate(LocalDate startDate, LocalDate endDate) throws BusinessException {
         if (endDate.isBefore(startDate)) {

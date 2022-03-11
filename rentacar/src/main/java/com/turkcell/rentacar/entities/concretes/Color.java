@@ -18,11 +18,8 @@ public class Color {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int colorId;
-
-    //@Column(name="name",unique = true)
     @Column(name = "name")
     private String colorName;
-
     @OneToMany(mappedBy = "color")
     private List<Car> cars;
 }

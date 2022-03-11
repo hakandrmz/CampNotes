@@ -41,7 +41,7 @@ public class OrderedAdditionalServiceManager implements OrderedAdditionalService
                 .map(orderedAdditionalService -> this.modelMapperService.forDto().map(orderedAdditionalService, OrderedAdditionalServiceListDto.class))
                 .collect(Collectors.toList());
 
-        return new SuccessDataResult<List<OrderedAdditionalServiceListDto>>(response, "Ordered Additional Services are listed successfully.");
+        return new SuccessDataResult(response, "Ordered Additional Services are listed successfully.");
 	}
 
 	@Override

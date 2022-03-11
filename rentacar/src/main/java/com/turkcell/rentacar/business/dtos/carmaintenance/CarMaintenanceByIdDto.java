@@ -11,11 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CarMaintenanceByIdDto {
-
 	private int carMaintenanceId;
 	private String description;
 	private LocalDate returnDate;
-	
 	private int carCarId;
     
 }

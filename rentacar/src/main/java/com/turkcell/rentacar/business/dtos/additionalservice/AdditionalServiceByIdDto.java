@@ -9,9 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdditionalServiceByIdDto {
-    
-
     private String additionalServiceName;
-
     private double dailyPrice;
 }

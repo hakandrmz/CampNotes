@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UpdateAdditionalServiceRequest {
 	private int additionalServiceId;
-
     private String additionalServiceName;
-
     private double dailyPrice;
 }

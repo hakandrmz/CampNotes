@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ColorByIdDto {
-
     private int colorId;
     private String colorName;
 }

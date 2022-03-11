@@ -25,14 +25,14 @@ public class ColorManager implements ColorService {
 
     private ColorDao colorDao;
     private ModelMapperService modelMapperService;
-    
+
     @Autowired
     public ColorManager(ColorDao colorDao, ModelMapperService modelMapperService) {
-		this.colorDao = colorDao;
-		this.modelMapperService = modelMapperService;
-	}
+        this.colorDao = colorDao;
+        this.modelMapperService = modelMapperService;
+    }
 
-	@Override
+    @Override
     public DataResult<List<ColorListDto>> getAll() {
 
         List<Color> result = this.colorDao.findAll();
@@ -47,44 +47,34 @@ public class ColorManager implements ColorService {
     @Override
     public Result add(CreateColorRequest createColorRequest) throws BusinessException {
         Color color = this.modelMapperService.forRequest().map(createColorRequest, Color.class);
-
         checkIfColorNameIsUnique(color.getColorName());
-
-
         this.colorDao.save(color);
-
         return new SuccessResult("Color is added.");
     }
 
     @Override
     public DataResult<ColorByIdDto> getById(int colorId) throws BusinessException {
-    	checkIfColorExists(colorId);
+        checkIfColorExists(colorId);
         Color color = this.colorDao.getById(colorId);
-
         ColorByIdDto response = this.modelMapperService.forDto().map(color, ColorByIdDto.class);
-
         return new SuccessDataResult<ColorByIdDto>(response);
     }
 
 
     @Override
     public Result update(UpdateColorRequest updateColorRequest) throws BusinessException {
-    	checkIfColorExists(updateColorRequest.getColorId());
+        checkIfColorExists(updateColorRequest.getColorId());
         Color color = this.modelMapperService.forRequest().map(updateColorRequest, Color.class);
-
         checkIfColorNameIsUnique(color.getColorName());
-
         this.colorDao.save(color);
-
         return new SuccessResult("Color is updated.");
     }
 
     @Override
     public Result deleteById(int colorId) throws BusinessException {
-    	checkIfColorExists(colorId);
+        checkIfColorExists(colorId);
         this.colorDao.deleteById(colorId);
         return new SuccessResult("Color is deleted.");
-
     }
 
     private boolean checkIfColorNameIsUnique(String colorName) throws BusinessException {
@@ -98,12 +88,12 @@ public class ColorManager implements ColorService {
         return true;
 
     }
-    
+
     private boolean checkIfColorExists(int id) throws BusinessException {
-    	if(colorDao.existsById(id) == false) {
-    		throw new BusinessException("Color does not exist by id:" + id);
-    	}
-		return true;
+        if (colorDao.existsById(id) == false) {
+            throw new BusinessException("Color does not exist by id:" + id);
+        }
+        return true;
     }
 
 }

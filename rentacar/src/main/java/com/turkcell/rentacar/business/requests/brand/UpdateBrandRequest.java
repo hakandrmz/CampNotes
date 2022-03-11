@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateBrandRequest {
-
     private int brandId;
     private String brandName;
 }

@@ -12,13 +12,9 @@ import lombok.NoArgsConstructor;
 public class RentalListDto {
 	
 	private int rentalId;
-	
 	private LocalDate startDate;
-	
 	private LocalDate endDate;
-	
 	private String cityOfPickUpLocation_CityName;
 	private String cityOfReturnLocation_CityName;
-	
 	private int carCarId;
 }

@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CarByIdDto {
-
     private int carId;
     private double dailyPrice;
     private int modelYear;

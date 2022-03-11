@@ -4,7 +4,6 @@ import com.turkcell.rentacar.business.dtos.brand.BrandByIdDto;
 import com.turkcell.rentacar.business.dtos.brand.BrandListDto;
 import com.turkcell.rentacar.business.requests.brand.CreateBrandRequest;
 import com.turkcell.rentacar.business.requests.brand.UpdateBrandRequest;
-import com.turkcell.rentacar.core.exceptions.BusinessException;
 import com.turkcell.rentacar.core.utilities.results.DataResult;
 import com.turkcell.rentacar.core.utilities.results.Result;
 

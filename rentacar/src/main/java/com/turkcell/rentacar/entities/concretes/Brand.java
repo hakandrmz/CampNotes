@@ -19,7 +19,6 @@ public class Brand {
     @Column(name = "id")
     private int brandId;
 
-    //@Column(name="name",unique = true)
     @Column(name = "name")
     private String brandName;
 

@@ -107,14 +107,10 @@ public class CarMaintenanceManager implements CarMaintenanceService {
                 .collect(Collectors.toList());
 
         for (Rental rental : response) {
-
             if (rental.getEndDate() == null || rental.getEndDate().isAfter(LocalDate.now())) {
-
                 throw new BusinessException("Car is not available until " + rental.getEndDate());
-
             }
         }
-
     }
 
 

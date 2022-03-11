@@ -42,28 +42,18 @@ public class BrandManager implements BrandService {
 
     @Override
     public Result add(CreateBrandRequest createBrandRequest) throws BusinessException {
-
-
         Brand brand = this.modelMapperService.forRequest().map(createBrandRequest, Brand.class);
-
         checkIfBrandNameIsUnique(brand.getBrandName());
-
-
         this.brandDao.save(brand);
-
         return new SuccessResult("Brand is added.");
-
     }
 
 
     @Override
     public DataResult<BrandByIdDto> getById(int brandId) throws BusinessException {
-
         checkIfBrandExists(brandId);
         Brand brand = this.brandDao.getById(brandId);
-
         BrandByIdDto response = this.modelMapperService.forDto().map(brand, BrandByIdDto.class);
-
         return new SuccessDataResult<BrandByIdDto>(response, "Brand is found by id.");
     }
 
@@ -72,9 +62,7 @@ public class BrandManager implements BrandService {
     public Result update(UpdateBrandRequest updateBrandRequest) throws BusinessException {
         checkIfBrandExists(updateBrandRequest.getBrandId());
         Brand brand = this.modelMapperService.forRequest().map(updateBrandRequest, Brand.class);
-
         checkIfBrandNameIsUnique(brand.getBrandName());
-
         this.brandDao.save(brand);
         return new SuccessResult("Brand is updated successfuly.");
     }
@@ -88,13 +76,11 @@ public class BrandManager implements BrandService {
     }
 
     private boolean checkIfBrandNameIsUnique(String brandName) throws BusinessException {
-
         for (BrandListDto brandElement : this.getAll().getData()) {
             if (brandElement.getBrandName().equalsIgnoreCase(brandName)) {
                 throw new BusinessException("There can not be more than one brand with the same name.");
             }
         }
-
         return true;
 
     }

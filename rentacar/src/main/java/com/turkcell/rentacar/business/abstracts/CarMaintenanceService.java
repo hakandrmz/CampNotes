@@ -6,7 +6,7 @@ import com.turkcell.rentacar.business.dtos.carmaintenance.CarMaintenanceByIdDto;
 import com.turkcell.rentacar.business.dtos.carmaintenance.CarMaintenanceListDto;
 import com.turkcell.rentacar.business.requests.carmaintenance.CreateCarMaintenanceRequest;
 import com.turkcell.rentacar.business.requests.carmaintenance.UpdateCarMaintenanceRequest;
-import com.turkcell.rentacar.core.exceptions.BusinessException;
+
 import com.turkcell.rentacar.core.utilities.results.DataResult;
 import com.turkcell.rentacar.core.utilities.results.Result;
 
